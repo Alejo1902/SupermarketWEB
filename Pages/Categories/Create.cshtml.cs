@@ -26,7 +26,7 @@ namespace SupermarketWEB.Pages.Categories
             {
                 return Page();
             }
-            _context.categories.Add(Category);
+            _context.Categories.Add(Category);
             await _context.SaveChangesAsync();
             return RedirectToPage(" ./index");
         }

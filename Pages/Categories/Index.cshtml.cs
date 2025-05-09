@@ -19,7 +19,7 @@ namespace SupermarketWEB.Pages.Categories
         {
             if (_context.categories != null)
             {
-                categories = await _context.categories.ToListAsync();
+                categories = await _context.Categories.ToListAsync();
             }
         }
     }
