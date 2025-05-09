@@ -14,12 +14,12 @@ namespace SupermarketWEB.Pages.Categories
             _context = context;
         }
 
-        public IList<Category> categories { get; set; } = default!;
+        public IList<Category> Categories { get; set; } = default!;
         public async Task OnGetAsync()
         {
-            if (_context.categories != null)
+            if (_context.Categories != null)
             {
-                categories = await _context.Categories.ToListAsync();
+                Categories = await _context.Categories.ToListAsync();
             }
         }
     }

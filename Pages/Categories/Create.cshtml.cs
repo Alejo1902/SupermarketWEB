@@ -22,7 +22,7 @@ namespace SupermarketWEB.Pages.Categories
         public Category Category { get; set; } = default!;
         public async Task<IActionResult> OnPostAsync()
         {
-            if(!ModelState.IsValid||_context.categories==null||Category == null)
+            if(!ModelState.IsValid||_context.Categories==null||Category == null)
             {
                 return Page();
             }

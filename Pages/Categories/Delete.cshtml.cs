@@ -17,7 +17,7 @@ namespace SupermarketWEB.Pages.Categories
         public Category Category { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if(id == null || _context.categories == null) 
+            if(id == null || _context.Categories == null) 
             {
                 return NotFound();
             }
