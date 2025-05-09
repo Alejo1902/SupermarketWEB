@@ -32,9 +32,23 @@ namespace SupermarketWEB.Pages.Categories
             }
             return Page();
         }
-
-        public void OnGet()
+        public async Task<ActionResult> OnPostAsync(int? id)
         {
+            if (id == null || _context.Categories==null)
+            {
+                return NotFound();
+
+            }
+            var category = await _context.Categories.FindAsync(id);
+            if (category != null) 
+            {
+                Category = category;
+                _context.Categories.Remove(Category);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToPage("./Index");
         }
+
+        
     }
 }
