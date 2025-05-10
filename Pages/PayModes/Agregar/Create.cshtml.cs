@@ -25,7 +25,7 @@ namespace SupermarketWEB.Pages.PayModes
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.PayModes == null || PayMode == null)
+            if (!ModelState.IsValid || _context.Providers == null || PayMode == null)
             {
                 return Page();
             }
