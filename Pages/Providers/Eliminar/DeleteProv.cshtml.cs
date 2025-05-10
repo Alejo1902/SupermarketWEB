@@ -47,7 +47,7 @@ namespace SupermarketWEB.Pages.Providers
                 _context.Providers.Remove(Provider);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Providers/Index");
         }
 
 

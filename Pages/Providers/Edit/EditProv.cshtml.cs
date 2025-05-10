@@ -52,7 +52,7 @@ namespace SupermarketWEB.Pages.Providers
                     throw;
                 }
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Providers/Index");
         }
         private bool ProviderExists(int id)
         {
