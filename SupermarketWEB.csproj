@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\NewFolder\" />
+    <Folder Include="Pages\Categories\NewFolder\" />
   </ItemGroup>
 
 </Project>
