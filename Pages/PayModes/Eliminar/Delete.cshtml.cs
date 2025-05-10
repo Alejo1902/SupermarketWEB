@@ -5,6 +5,7 @@ using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
 namespace SupermarketWEB.Pages.PayModes
+
 {
     public class DeleteModel : PageModel
     {
@@ -21,14 +22,14 @@ namespace SupermarketWEB.Pages.PayModes
             {
                 return NotFound();
             }
-            var PayMode = await _context.PayModes.FirstOrDefaultAsync(m => m.Id == id);
-            if (PayMode == null)
+            var PayModes = await _context.PayModes.FirstOrDefaultAsync(m => m.Id == id);
+            if (PayModes == null)
             {
                 return NotFound();
             }
             else
             {
-                PayMode = PayMode;
+                PayMode = PayModes;
             }
             return Page();
         }
@@ -39,14 +40,14 @@ namespace SupermarketWEB.Pages.PayModes
                 return NotFound();
 
             }
-            var PayMode = await _context.PayModes.FindAsync(id);
-            if (PayMode != null)
+            var PayModes = await _context.PayModes.FindAsync(id);
+            if (PayModes != null)
             {
-                PayMode = PayMode;
+                PayMode = PayModes;
                 _context.PayModes.Remove(PayMode);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("/PayModes/Index");
         }
 
 

@@ -21,10 +21,28 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PayMode.Description)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PayMode.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.PayMode.IsActive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PayMode.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.PayMode.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PayMode.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayNameFor(model => model.PayMode.UpdatedAt)
+        </dd>
     </dl>
     <form method="post">
         <input type="hidden" asp-for="PayMode.Id" />
         <input type="submit" value="Delete" class="btn btn-danger" />
-        <a asp-page="./Index" class="btn btn-primary">Back to List</a>
+        <a asp-page="/PayModes/Index" class="btn btn-primary">Back to List</a>
     </form>
 </div>

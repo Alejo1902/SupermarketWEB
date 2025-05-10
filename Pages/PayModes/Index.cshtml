@@ -49,9 +49,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.UpdatedAt)
                 </td>
-                <td>
-                    <a asp-page="/PayModes/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                </td>
+                
                 <td>
                     <a asp-page="/PayModes/Editar/Editar" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
                     <a asp-page="/PayModes/Eliminar/Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>

@@ -1,0 +1,40 @@
+﻿@page
+@model SupermarketWEB.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Products List";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-page="/Products/Agregar/Create" class="btn btn-success"> Agregar Product</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>CategoryId</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td>@item.CategoryId</td>
+                <td>@item.Category</td>
+                <td>@item.Description</td>
+                <td>
+                    <a asp-page="/Products/Editar/Editar" asp-route-id="@item.Id" class="btn btn-primary btn-sm"> Edit</a>
+                    <a asp-page="/Products/Eliminar/Delete" asp-route-id="@item.Id" class="btn btn-primary btn-sm"> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
