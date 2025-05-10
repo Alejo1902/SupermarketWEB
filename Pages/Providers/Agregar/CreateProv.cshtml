@@ -22,6 +22,11 @@
                 <input asp-for="Provider.Telefono" class="form-control" />
                 <span asp-validation-for="Provider.Telefono" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Provider.Email" class="control-label"></label>
+                <input asp-for="Provider.Email" class="form-control" />
+                <span asp-validation-for="Provider.Email" class="text-danger"></span>
+            </div>
             <div class="form-group mt-3">
                 <input type="submit" value="Create" class="btn btn-success" />
                 <a asp-page="/Providers/Index" class="btn btn-primary">Back to List</a>

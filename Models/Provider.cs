@@ -4,6 +4,7 @@ namespace SupermarketWEB.Models
 {
     public class Provider
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

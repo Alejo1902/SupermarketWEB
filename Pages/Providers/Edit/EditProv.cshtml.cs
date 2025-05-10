@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
@@ -9,10 +9,12 @@ namespace SupermarketWEB.Pages.Providers
     public class EditModel : PageModel
     {
         private readonly SupermarketContext _context;
+
         public EditModel(SupermarketContext context)
         {
             _context = context;
         }
+
         [BindProperty]
         public Provider Provider { get; set; } = default!;
 
@@ -22,21 +24,27 @@ namespace SupermarketWEB.Pages.Providers
             {
                 return NotFound();
             }
-            var Provider = await _context.Providers.FirstOrDefaultAsync(m => m.Id == id);
+
+            Provider = await _context.Providers.FirstOrDefaultAsync(m => m.Id == id);
+
             if (Provider == null)
             {
                 return NotFound();
             }
-            Provider = Provider;
+
             return Page();
         }
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            // Marca la entidad como modificada
             _context.Attach(Provider).State = EntityState.Modified;
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -52,11 +60,13 @@ namespace SupermarketWEB.Pages.Providers
                     throw;
                 }
             }
+
             return RedirectToPage("/Providers/Index");
         }
+
         private bool ProviderExists(int id)
         {
-            return (_context.Providers?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _context.Providers.Any(e => e.Id == id);
         }
     }
 }

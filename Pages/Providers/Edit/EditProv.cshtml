@@ -1,44 +1,30 @@
-﻿@page
-@model SupermarketWEB.Pages.Providers.IndexModel
+﻿@page "{id:int}"
+@model SupermarketWEB.Pages.Providers.EditModel
 @{
-    ViewData["Title"] = "Index Providers";
+    ViewData["Title"] = "Edit Provider";
 }
-<h1>Index Categories</h1>
+<h1>Edit Provider</h1>
 
-<p>
-    <a asp-page="/Agregar/Create" class="btn btn-success">Create New</a>
-</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Providers[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Providers[0].Telefono)
-            </th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Providers)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefono)
-                </td>
-                <td>
-                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                </td>
-                <td>
-                    <a asp-page="/Providers/Edit/EditProv" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                    <a asp-page="/Providers/Eliminar/DeleteProv" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Provider.Id" />
+    <div class="form-group">
+        <label asp-for="Provider.Name" class="control-label"></label>
+        <input asp-for="Provider.Name" class="form-control" />
+        <span asp-validation-for="Provider.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Provider.Email" class="control-label"></label>
+        <input asp-for="Provider.Email" class="form-control" />
+        <span asp-validation-for="Provider.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Provider.Telefono" class="control-label"></label>
+        <input asp-for="Provider.Telefono" class="form-control" />
+        <span asp-validation-for="Provider.Telefono" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-page="/Providers/Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
