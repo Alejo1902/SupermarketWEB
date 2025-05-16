@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Razor;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SupermarketWEB.Pages.Categories
 {
+    
     public class CreateModel : PageModel
     {
         private readonly SupermarketContext _context;
