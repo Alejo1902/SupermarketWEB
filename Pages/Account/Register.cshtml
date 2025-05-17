@@ -1,0 +1,27 @@
+﻿@page
+@model SupermarketWEB.Pages.Account.RegisterModel
+@{
+}
+<h2>Register</h2>
+<form method="post">
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+    <div class="mb-3">
+        <label for="emailInput" class="form-label">Email address</label>
+        <input type="email" class="form-control"
+               asp-for="User.Email"
+               id="emailInput" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <span class="text-danger" asp-validation-for="User.Email"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="passwordInput" class="form-label">Password</label>
+        <input type="password" class="form-control"
+               asp-for="User.Password"
+               id="passwordInput">
+        <span class="text-danger" asp-validation-for="User.Password"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
